@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import IFSPoly from './IFSPoly';
+import IFSWithOpenSet from './IFSWithOpenSet';
 
 export default () =>
   <div className='App'>
@@ -67,5 +68,52 @@ export default () =>
         ([x, y]) => [x/3 + 2/3, y/3],
       ]}
     />
+
+    <h2>Open Set Condition</h2>
+
+
+    <IFSPoly
+      height={300}
+      initial={[[0,0], [1,0]]}
+      offset={[0, 200]}
+      iterations={1}
+      fns={[
+        ([x, y]) => [1 - x/3, -y/3],
+        ([x, y]) => [1/3 - y/9, -x/9],
+        ([x, y]) => [x/3 + 1/3, y/3 - 1/9],
+        ([x, y]) => [y/9 + 2/3, x/9 - 1/9],
+        ([x, y]) => [1/3 - x/3, -y/3],
+      ]}
+    />
+
+    <IFSPoly
+      height={300}
+      initial={[[0,0], [1,0]]}
+      offset={[0, 200]}
+      iterations={2}
+      fns={[
+        ([x, y]) => [1 - x/3, -y/3],
+        ([x, y]) => [1/3 - y/9, -x/9],
+        ([x, y]) => [x/3 + 1/3, y/3 - 1/9],
+        ([x, y]) => [y/9 + 2/3, x/9 - 1/9],
+        ([x, y]) => [1/3 - x/3, -y/3],
+      ]}
+    />
+
+    <IFSWithOpenSet
+      height={500}
+      initial={[[0,0], [1,0]]}
+      openSet={[[0,0], [0.5, -1/6], [1,0], [0.5, 1/6], [0, 0]]}
+      offset={[0, 200]}
+      iterations={2}
+      fns={[
+        ([x, y]) => [1 - x/3, -y/3],
+        ([x, y]) => [1/3 - y/9, -x/9],
+        ([x, y]) => [x/3 + 1/3, y/3 - 1/9],
+        ([x, y]) => [y/9 + 2/3, x/9 - 1/9],
+        ([x, y]) => [1/3 - x/3, -y/3],
+      ]}
+    />
+
 
   </div>
